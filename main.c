@@ -17,30 +17,9 @@ void tankRight(int power) {
 }
 
 void runAutonomous() {
-	motor[port1] = 127;
-	motor[port10] = -127;
+	motor[port5] = 127;
 	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
+	motor[port5] = 0;
 }
 
 
