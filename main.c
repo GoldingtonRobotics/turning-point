@@ -9,28 +9,14 @@ void pre_auton()
 void runAutonomous() {
 	motor[port1] = 127;
 	motor[port10] = -127;
-	wait1Msec(1000);
+	wait1Msec(2000);
 	motor[port1] = 0;
 	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
+	motor[port5] = -127;
+	motor[port6] = -127;
+	wait1Msec(500);
+	motor[port5] = 0;
+	motor[port6] = 0;
 }
 
 
