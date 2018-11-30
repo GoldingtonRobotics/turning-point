@@ -38,22 +38,15 @@ void reverse(int milliseconds) {
     motor[port10]  = 0;
 }
 
-void stopAllMotors(int milliseconds) {
-	    motor[port1] = 0;
-    motor[port10]  = 0;
-	wait1Msec(milliseconds);
+void stopAllMotors() {
 	    motor[port1] = 0;
     motor[port10]  = 0;
 }
 void runAutonomous() {
-	forward(1250);
-	turnRight(250);
-	turnLeft(500);
-	turnRight(250);
-	reverse(250);
-	turnLeft(750);
-	forward(1000);
-	stopAllMotors(0);
+	forward(250);
+	turnLeft(250);
+	forward(2000);
+	stopAllMotors();
 }
 
 task autonomous()
