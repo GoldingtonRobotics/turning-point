@@ -49,32 +49,30 @@ void pre_auton()
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
+void forward(int milliseconds) {
+	    motor[port1] = 127;
+    motor[port10]  = -127;
+	wait1Msec(milliseconds);
+	    motor[port1] = 0;
+    motor[port10]  = 0;
+}
+
+void turnRight(int milliseconds) {
+	    motor[port1] = 127;
+    motor[port10]  = 127;
+	wait1Msec(milliseconds);
+	    motor[port1] = 0;
+    motor[port10]  = 0;
+}
 
 void runAutonomous() {
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
+	forward(2000);
+	moveMotor(armMotor, 1, seconds, 75);
+	turnRight(1000);
+	forward(2500);
+	turnLeft(240, degrees, 50);
+	forward(2500);
+	stopAllMotors();
 }
 
 
