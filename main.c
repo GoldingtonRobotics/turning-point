@@ -6,6 +6,16 @@ void pre_auton()
   bStopTasksBetweenModes = true;
 }
 
+void tankLeft(int power) {
+	motor[port1] = power;
+	motor[port2] = power;
+}
+
+void tankRight(int power) {
+	motor[port9] = power;
+	motor[port10] = power;
+}
+
 void runAutonomous() {
 	motor[port1] = 127;
 	motor[port10] = -127;
