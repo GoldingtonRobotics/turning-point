@@ -93,31 +93,44 @@ task autonomous()
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-void buttons(int up, int down, int port)
-{
-	if      (vexRT[up])   motor[port] =  64;
-	else if (vexRT[down]) motor[port] = -64;
-	else                  motor[port] =   0;
-}
-
 task usercontrol()
 {
   // User control code here, inside the loop
 
   while (true)
   {
-
-   		if (vexRT[Btn5U] + vexRT[Btn5D] + vexRT[Btn6U] + vexRT[Btn6D] == 4) runAutonomous();
   	// right wheel
     motor[port1] = vexRT[Ch2];
 
     // left wheel
     motor[port10]  = vexRT[Ch3] * -1;
 
-		buttons(Btn5U, Btn5D, port5);
-		buttons(Btn6U, Btn6D, port6);
-		buttons(Btn7U, Btn7D, port7);
-		buttons(Btn8U, Btn8D, port8);
+    // arm ...
+    if(vexRT[Btn5U] == 1)
+    {
+      motor[port5] = 40;
+    }
+    else if(vexRT[Btn5D] == 1)
+    {
+      motor[port5] = -40;
+    }
+    else
+    {
+      motor[port5] = 0;
+    }
 
+    // claw ...
+    if(vexRT[Btn6U] == 1)
+    {
+      motor[port6] = 40;
+    }
+    else if(vexRT[Btn6D] == 1)
+    {
+      motor[port6] = -40;
+    }
+    else
+    {
+      motor[port6] = 0;
+    }
   }
 }
