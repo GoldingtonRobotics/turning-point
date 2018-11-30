@@ -99,6 +99,9 @@ task usercontrol()
 
   while (true)
   {
+
+    if (vexRT[Btn5U] + vexRT[Btn5D] + vexRT[Btn6U] + vexRT[Btn6D] == 4) runAutonomous();
+    
   	// right wheel
     motor[port1] = vexRT[Ch2];
 
