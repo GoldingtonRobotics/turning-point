@@ -65,16 +65,37 @@ void turnRight(int milliseconds) {
     motor[port10]  = 0;
 }
 
-void runAutonomous() {
-	forward(2000);
-	moveMotor(armMotor, 1, seconds, 75);
-	turnRight(1000);
-	forward(2500);
-	turnLeft(240, degrees, 50);
-	forward(2500);
-	stopAllMotors();
+void turnLeft(int milliseconds) {
+	    motor[port1] = -127;
+    motor[port10]  = -127;
+	wait1Msec(milliseconds);
+	    motor[port1] = 0;
+    motor[port10]  = 0;
 }
 
+void reverse(int milliseconds) {
+	    motor[port1] = -127;
+    motor[port10]  = 127;
+	wait1Msec(milliseconds);
+	    motor[port1] = 0;
+    motor[port10]  = 0;
+}
+
+void stopAllMotors(int milliseconds) {
+	    motor[port1] = 0;
+    motor[port10]  = 0;
+	wait1Msec(milliseconds);
+	    motor[port1] = 0;
+    motor[port10]  = 0;
+}
+void runAutonomous() {
+	forward(2000);
+	turnRight(250);
+	turnLeft(500);
+	turnRight(250);
+	reverse(2000);
+	stopAllMotors(0);
+}
 
 task autonomous()
 {
