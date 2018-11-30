@@ -54,27 +54,14 @@ void runAutonomous() {
 	motor[port1] = 127;
 	motor[port10] = -127;
 	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
+	motor[port1] = -127;
+	motor[port10] = -127;
+	wait1Msec(500);
 	motor[port1] = 127;
 	motor[port10] = -127;
 	wait1Msec(1000);
 	motor[port1] = 0;
 	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
 }
 
 
@@ -101,7 +88,7 @@ task usercontrol()
   {
 
     if (vexRT[Btn5U] + vexRT[Btn5D] + vexRT[Btn6U] + vexRT[Btn6D] == 4) runAutonomous();
-    
+
   	// right wheel
     motor[port1] = vexRT[Ch2];
 
