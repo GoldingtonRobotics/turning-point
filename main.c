@@ -110,8 +110,10 @@ task usercontrol()
    		if (vexRT[Btn5U] + vexRT[Btn5D] + vexRT[Btn6U] + vexRT[Btn6D] == 4) runAutonomous();
   	// right wheel
     motor[port1] = vexRT[Ch2];
+    motor[port2] = vexRT[Ch2];
 
     // left wheel
+    motor[port9]  = vexRT[Ch3] * -1;
     motor[port10]  = vexRT[Ch3] * -1;
 
 		buttons(Btn5U, Btn5D, port5);
