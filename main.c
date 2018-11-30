@@ -89,11 +89,13 @@ void stopAllMotors(int milliseconds) {
     motor[port10]  = 0;
 }
 void runAutonomous() {
-	forward(2000);
+	forward(1250);
 	turnRight(250);
 	turnLeft(500);
 	turnRight(250);
-	reverse(2000);
+	reverse(250);
+	turnLeft(750);
+	forward(1000);
 	stopAllMotors(0);
 }
 
