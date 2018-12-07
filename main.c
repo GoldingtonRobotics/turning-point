@@ -6,6 +6,11 @@ void pre_auton()
   bStopTasksBetweenModes = true;
 }
 
+void offAfter(int milliseconds) {
+	wait1Msec(milliseconds);
+	allMotorsOff();
+}
+
 void tankLeft(int power) {
 	motor[port1] = power;
 	motor[port2] = power;
@@ -16,31 +21,34 @@ void tankRight(int power) {
 	motor[port10] = power;
 }
 
+void tank(int left, int right, int milliseconds) {
+	tankLeft(left);
+	tankRight(right);
+	offAfter(milliseconds);
+}
+
+void forwards(int milliseconds) {
+	tank(127, 127, milliseconds);
+}
+
+void backwards(int milliseconds) {
+	tank(-127, -127, milliseconds);
+}
+
+void left(int milliseconds) {
+	tank(127, -127, milliseconds);
+}
+
+void right(int milliseconds) {
+	tank(-127, 127, milliseconds);
+}
+
 void runAutonomous() {
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
-	motor[port1] = 127;
-	motor[port10] = -127;
-	wait1Msec(1000);
-	motor[port1] = 0;
-	motor[port10] = 0;
-	wait1Msec(1000);
+	forwards(1000);
+	left(500);
+	forwards(2000);
+	backwards(2000);
+	right(500);
 }
 
 
@@ -62,7 +70,7 @@ task usercontrol()
   while (true)
   {
 
-   		if (vexRT[Btn5U] + vexRT[Btn5D] + vexRT[Btn6U] + vexRT[Btn6D] == 4) runAutonomous();
+   	if (vexRT[Btn5U] + vexRT[Btn5D] + vexRT[Btn6U] + vexRT[Btn6D] == 4) runAutonomous();
   	// right wheel
     motor[port1] = vexRT[Ch2];
     motor[port2] = vexRT[Ch2];
