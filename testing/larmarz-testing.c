@@ -2,4 +2,10 @@
 #include "../autonomous/larmarz.h"
 #include "../usercontrol/standard.h"
 
-task main() { runUserControl(); }
+task main() {
+	if (virtual) {
+		runAutonomous();
+	} else {
+		runUsercontrol();
+	}
+}

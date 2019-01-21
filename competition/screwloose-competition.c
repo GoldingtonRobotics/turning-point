@@ -3,6 +3,7 @@
 #include "Vex_Competition_Includes.c"
 #include "../base.h"
 #include "../autonomous/screwloose.h"
+#include "../usercontrol/standard.h"
 
 void pre_auton() { bStopTasksBetweenModes = true; }
 
